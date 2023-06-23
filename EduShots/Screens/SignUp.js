@@ -19,7 +19,8 @@ export default function SignUp() {
     const [passwordCaption, setPasswordCaption] = useState("");
     const [confirmPasswordCaption, setConfirmPasswordCaption] = useState("");
     const [confirmPasswordStatus, setConfirmPasswordStatus] = useState("basic")
-
+    const [disableInput, setDisabledInput] = useState(false)
+    
     const [selectedIndex, setSelectedIndex] = useState(new IndexPath(0));
     const displayValue = data[selectedIndex.row];
     const renderOption = (title) => <SelectItem title={title} />;
