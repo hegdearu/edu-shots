@@ -98,6 +98,7 @@ export default function SignUp() {
                 placeholder='Enter your password'
                 status= {passwordStatus}
                 onChangeText ={(val) => setPassword(val)}
+                caption={passwordCaption}
                 secureTextEntry
             />
             <Input
