@@ -9,6 +9,7 @@ import Feed from "./Screens/Feed.js";
 import UploadVideo from "./Screens/UploadVideo.js";
 import * as eva from '@eva-design/eva';
 import Signin from "./Screens/Signin.js";
+import RecordVideo from "./Screens/RecordVideo.js";
 
 
 
@@ -23,6 +24,7 @@ const App =()=> {
         <Stack.Screen name="Signin" component={Signin} />
         <Stack.Screen name="Signup" component={SignUp}/>
         <Stack.Screen name="Feed" component={Feed}/>
+        <Stack.Screen name="RecordVideo" component={RecordVideo}/>
         <Stack.Screen name="UploadVideo" component={UploadVideo}/>
           
       </Stack.Navigator>
