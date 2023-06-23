@@ -10,6 +10,8 @@ import UploadVideo from "./Screens/UploadVideo.js";
 import * as eva from '@eva-design/eva';
 import Signin from "./Screens/Signin.js";
 import RecordVideo from "./Screens/RecordVideo.js";
+import Doubts from "./Screens/Doubts.js";
+import Report from "./Screens/Report.js";
 
 
 
@@ -19,7 +21,7 @@ const App =()=> {
   return(
 
     <ApplicationProvider {...eva} theme={eva.light}>
-      <NavigationContainer>
+      {/* <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Signin" component={Signin} />
         <Stack.Screen name="Signup" component={SignUp}/>
@@ -28,7 +30,8 @@ const App =()=> {
         <Stack.Screen name="UploadVideo" component={UploadVideo}/>
           
       </Stack.Navigator>
-      </NavigationContainer>
+      </NavigationContainer> */}
+      <Doubts/>
       
     </ApplicationProvider>
     
