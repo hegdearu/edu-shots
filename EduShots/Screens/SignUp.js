@@ -10,17 +10,50 @@ export default function SignUp() {
 
     const [name, setName] = useState("")
     const [nameStatus, setNameStatus] = useState("primary")
+    const [nameCaption, setNameCaption] = useState("")
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [passwordStatus, setPasswordStatus] = useState("primary")
     const [email, setEmail] = useState("")
     const [emailStatus, setEmailStatus] = useState("primary")
+    const [passwordCaption, setPasswordCaption] = useState("");
+    const [confirmPasswordCaption, setConfirmPasswordCaption] = useState("");
+    const [confirmPasswordStatus, setConfirmPasswordStatus] = useState("basic")
 
     const [selectedIndex, setSelectedIndex] = useState(new IndexPath(0));
     const displayValue = data[selectedIndex.row];
     const renderOption = (title) => <SelectItem title={title} />;
 
-    
+    const handlePress = () => {
+
+        if(name.length < 5){
+            setNameStatus("danger")
+            setNameCaption("Enter full name")
+        }
+        else{
+            setNameCaption("")
+            setNameStatus("success")
+        }
+        if(password.length < 8){
+            setPasswordStatus("danger")
+            setPasswordCaption("Password must contain atleast 8 characters")
+        }
+        else{
+            setPasswordStatus("success")
+            setPasswordCaption("")
+        }
+        
+        if(password !== confirmPassword){
+            setConfirmPasswordStatus("danger");
+            setConfirmPasswordCaption("Passwords do not match")
+        }
+        else{
+            setConfirmPasswordStatus("success");
+            setConfirmPasswordCaption("")
+        }       
+        
+        console.log(displayValue)
+    }    
 
   return (
     <Layout style = {{flex: 1, justifyContent: "center"}}>
@@ -31,9 +64,11 @@ export default function SignUp() {
                 style = {{marginHorizontal: 40, marginVertical: 5}}
                 value= {name}
                 label={"Name"}           
-                 size="large"
+                size="large"
                 placeholder='Enter your name'
                 status= {nameStatus}
+                onChangeText ={(val) => setName(val)}                                     
+                caption={nameCaption}
             />
             <Input
                 style = {{marginHorizontal: 40, marginVertical: 5}}
@@ -41,7 +76,7 @@ export default function SignUp() {
                 label={"E-mail"}            
                 size="large"
                 placeholder='Enter your email'
-                status= {emailStatus}
+                onChangeText ={(val) => setEmail(val)}
             />
             <Select
             label={"Domain"}
@@ -62,6 +97,8 @@ export default function SignUp() {
                 size="large"
                 placeholder='Enter your password'
                 status= {passwordStatus}
+                onChangeText ={(val) => setPassword(val)}
+                secureTextEntry
             />
             <Input
                 style = {{marginHorizontal: 40, marginVertical: 5}}
@@ -69,10 +106,13 @@ export default function SignUp() {
                 label={"Confirm Password"}            
                 size="large"
                 placeholder='Confirm your password'
-                status= {passwordStatus}
+                status= {confirmPasswordStatus}
+                caption={confirmPasswordCaption}
+                onChangeText ={(val) => setConfirmPassword(val)}
+                secureTextEntry
             />
             <Layout style = {{marginTop: 20, marginHorizontal: 80}}>
-                <Button>Register</Button>
+                <Button onPress={handlePress} size='large'>Register</Button>
             </Layout>
             
         </Layout>
