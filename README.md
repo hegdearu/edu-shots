@@ -1,1 +1,3 @@
 # EduShots
+
+we win hackathon :)
