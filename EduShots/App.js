@@ -5,10 +5,11 @@ import SignUp from './Screens/SignUp';
 import Feed from './Screens/Feed';
 import ProfilePage from './Screens/Profile';
 import LeaderboardScreen from './Screens/LeaderBoards';
+import Doubts from './Screens/Doubts';
 
 const App = () => (
-  <ApplicationProvider {...eva} theme={eva.light}>
-    <LeaderboardScreen/>
+  <ApplicationProvider {...eva} theme={eva.dark}>
+    <Doubts/>
   </ApplicationProvider>
 );
 
